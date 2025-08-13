@@ -66,26 +66,7 @@ public class TableDataFetcher extends LoginPage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-       WebElement idloc= driver.findElement(By.xpath("//tbody/tr[1]/td[1]"));
-       String id = idloc.getText();
-       System.out.println("Id for this is :" + id);
-       
-       WebElement identifier = driver.findElement(By.xpath("//tbody/tr[1]/td[2]"));
-        String identify =  identifier.getText();
-       System.out.println("Identified number is : " + identify);
-       
-     WebElement vendorId = driver.findElement(By.xpath("//tbody/tr[1]/td[3]"));
-     String vendor = vendorId.getText();
-     System.out.println("Vendor id is :" + vendor);
-     
-     WebElement purchaseDnD = driver.findElement(By.xpath("//tbody/tr[1]/td[4]"));
-     String purchase = purchaseDnD.getText();
-     System.out.println("PURCHASE DATE :" + purchase);
-     
-     WebElement manufactureDnD = driver.findElement(By.xpath("//tbody/tr[1]/td[5]"));
-     String manufacture = manufactureDnD.getText();
-     System.out.println("Manufactured Date is :" + manufacture);
-     
+      
     	 try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {
@@ -114,7 +95,8 @@ public class TableDataFetcher extends LoginPage {
            driver.findElement(By.xpath("//button[@name='day' and text()='" + purchaseDate1 + "']")).click();
 
            
-           
+           driver.findElement(By.xpath("//button[@type='submit']")).click();
+
     	 
     	 
      
