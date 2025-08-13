@@ -85,6 +85,40 @@ public class TableDataFetcher extends LoginPage {
      WebElement manufactureDnD = driver.findElement(By.xpath("//tbody/tr[1]/td[5]"));
      String manufacture = manufactureDnD.getText();
      System.out.println("Manufactured Date is :" + manufacture);
+     
+    	 try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} // wait for form submission and page update
+    	 WebElement edit =  driver.findElement(By.xpath("//tbody/tr[1]/td[6]"));
+    	 edit.click();
+    	 
+    	   String edit0 = generateRandomIdentifier(12);
+           driver.findElement(By.xpath("//input[@name='identifier']")).sendKeys(edit0);
+           driver.findElement(By.xpath("//button[.//span[text()='Pick a date']]")).click();
+           String manufacturedDate1 = String.valueOf(LocalDate.now().minusDays(1).getDayOfMonth());
+           driver.findElement(By.xpath("//button[@name='day' and text()='" + manufacturedDate1 + "']")).click();
+
+           // Select vendor from dropdown
+           WebElement dropdown1 = driver.findElement(By.xpath("//select[@name='vendor_id']"));
+           Select select1 = new Select(dropdown1);
+           select1.selectByVisibleText("haha");
+   	       
+          
+
+           // Pick purchase date (today)
+           driver.findElement(By.xpath("//button[.//span[text()='Pick a date']]")).click();
+           String purchaseDate1 = String.valueOf(LocalDate.now().getDayOfMonth());
+           driver.findElement(By.xpath("//button[@name='day' and text()='" + purchaseDate1 + "']")).click();
+
+           
+           
+    	 
+    	 
+     
+	 
     		 
         
     }
